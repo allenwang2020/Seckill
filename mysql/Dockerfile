@@ -13,7 +13,7 @@ ENV FILE_0 seckill-schema.sql
 ENV INSTALL_DATA_SHELL docker-entrypoint.sh
 
 COPY ./$FILE_0 $WORK_PATH/
-COPY ./$FILE_1 $WORK_PATH/
+#COPY ./$FILE_1 $WORK_PATH/
 #把要執行的shell文件放到/docker-entrypoint-initdb.d/目錄下，容器會自動執行這個shell
 COPY ./$INSTALL_DATA_SHELL $AUTO_RUN_DIR/
 
