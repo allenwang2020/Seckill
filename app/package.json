@@ -1,6 +1,6 @@
 {
   "name": "secKill_web_app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js on Docker",
   "author": "Allen Wang <allenwang2020@gmail.com>",
   "private": true,
