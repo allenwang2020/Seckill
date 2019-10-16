@@ -423,4 +423,4 @@ producer.send(payload, function (err, data) {
 
 感谢[原文](https://www.jianshu.com/p/c18e61d0726c) 提供的经验。 
 
-项目源码地址：[miaosha](https://github.com/harryluo163/miaosha)
+项目源码地址：[Seckill](https://github.com/allenwang2020/Seckill)
