@@ -48,6 +48,5 @@ router.get('/getCount', function (req, res) {
         res.json({num:parseInt(reply[0])})
 
     })
-
 })
 module.exports = router;
