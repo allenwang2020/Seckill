@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>这是一个秒杀</title>
+    <title>這是一個秒殺</title>
 
     <link rel="stylesheet" href="/stylesheets/base.css">
     <style>
@@ -42,10 +42,10 @@
 <body>
 <div class="uf _all_box">
     <section class="_ms_box">
-        <div class="uf _uf_center img_box">第一个商品</div>
+        <div class="uf _uf_center img_box">第一個商品</div>
         <div class="but_box">
-            <div id="num" class="uf _uf_center number">剩余数量:--</div>
-            <div id="button" class="submit uf _uf_center button rosy" onclick="buy()">秒杀</button>
+            <div id="num" class="uf _uf_center number">剩餘數量:--</div>
+            <div id="button" class="submit uf _uf_center button rosy" onclick="buy()">秒殺</button>
             </div>
     </section>
 </div>
@@ -63,10 +63,10 @@
                 url: 'seckill/getCount',
                 success: function (result) {
                     if (result.num > 0) {
-                        $("#num").html("剩余数量:" + result.num);
+                        $("#num").html("剩餘數量:" + result.num);
                         $("#button").css("background", "#e77005")
                     } else {
-                        $("#num").html("剩余数量:0");
+                        $("#num").html("剩餘數量:0");
                         $("#button").css("background", "#ccc")
                         window.clearInterval(job)
                     }
@@ -76,7 +76,7 @@
     })
     function buy() {
         if (isbuy) {
-            alert("不能购买")
+            alert("不能購買")
         } else {
             $.ajax({
                 type: 'post',

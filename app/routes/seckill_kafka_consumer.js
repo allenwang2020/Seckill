@@ -1,13 +1,13 @@
 var kafka = require('kafka-node');
 Consumer = kafka.Consumer;
 var kafkaClient = kafka.Client;
-var client = new kafkaClient('192.168.99.110:2181');
+var client = new kafkaClient('192.168.99.113:2181');
 var parkTopicsNum = 0;
 var async = require('async')
 var mysql = require('mysql');
 var timeoutObj = "", consumer = ""
 var connection = mysql.createConnection({
-    host: '192.168.99.110',
+    host: '192.168.99.113',
     user: 'root',
     password: 'root',
     database: 'seckill'
@@ -16,11 +16,11 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
-// 定义一个队列进行数据保存
+// 定義一個陣列進行數據保存
 var q = async.queue(function (message, callback) {
     async.waterfall([
         function (cb) {
-            //查询数据库中是否存在
+            //查詢資料庫中是否存在
             connection.query("select count(1) num  from seckill where info='"+  message.value +"'", function (error, results, fields) {
                 cb(null, results[0].num == 0);
             })
@@ -44,11 +44,11 @@ var q = async.queue(function (message, callback) {
 
 
 }, 2);
-//worker数量将用完时，会调用saturated函数
+//worker數量將用完時，會調用saturated函數
 q.saturated = function () {
     console.log("all workers to be used");
 }
-//当最后一个任务交给worker执行时，会调用empty函数
+//當最後一個任務交給worker執行時，會調用empty函數
 q.empty = function () {
     console.log("no more tasks wating");
 }
@@ -107,7 +107,7 @@ function consumerdo() {
 
         consumer.on("error", function (message) {
             console.log(message);
-            console.log("kafka错误");
+            console.log("kafka錯誤");
         });
 
     })
