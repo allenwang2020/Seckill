@@ -1,3 +1,6 @@
 .DS_Store
 app/node_modules
 .log
+.settings/com.genuitec.eclipse.code.core.prefs
+.vscode/settings.json
+jmeter.log
