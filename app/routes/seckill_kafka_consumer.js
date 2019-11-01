@@ -1,13 +1,13 @@
 var kafka = require('kafka-node');
 Consumer = kafka.Consumer;
 var kafkaClient = kafka.Client;
-var client = new kafkaClient('192.168.99.113:2181');
+var client = new kafkaClient('192.168.99.118:2181');
 var parkTopicsNum = 0;
 var async = require('async')
 var mysql = require('mysql');
 var timeoutObj = "", consumer = ""
 var connection = mysql.createConnection({
-    host: '192.168.99.113',
+    host: '192.168.99.118',
     user: 'root',
     password: 'root',
     database: 'seckill'

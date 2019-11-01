@@ -3,6 +3,10 @@ services:
   nginx:
     build: 
       context: ./nginx
+      dockerfile: nginx.Dockerfile
+    image: seckill/nginx:1.0
+    container_name: nginx
+    hostname: nginx
     links:
       - web-node
     ports:
@@ -10,6 +14,10 @@ services:
   web-node:
     build:
       context: ./app
+      dockerfile: app.Dockerfile
+    image: seckill/app:1.0
+    container_name: app
+    hostname: app
     ports:
        - "3000:3000"
   zookeeper:
@@ -25,16 +33,17 @@ services:
     depends_on:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 192.168.99.113
+      KAFKA_ADVERTISED_HOST_NAME: 192.168.99.118
       KAFKA_ADVERTISED_PORT: "9092"
       KAFKA_ZOOKEEPER_CONNECT: zk:2181
   mysql:
    #找到當前目錄下mysql構建鏡像
-    build: ./mysql
-    #鏡像名稱
-    image: compose-mysql:skill
-    #項目名稱
-    container_name: compose-mysql
+    build:
+      context: ./mysql
+      dockerfile: mysql.Dockerfile
+    image: seckill/mysql:1.0
+    container_name: mysql
+    hostname: mysql
     #端口映射
     ports:
      - "3306:3306"

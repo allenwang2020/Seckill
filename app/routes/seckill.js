@@ -7,13 +7,13 @@ bluebird.promisifyAll(redis.Multi.prototype);
 var kafka = require('kafka-node');
 var Producer = kafka.Producer;
 var kafkaClient = kafka.Client;
-var client = new kafkaClient('192.168.99.113:2181');
+var client = new kafkaClient('192.168.99.118:2181');
 var producer = new Producer(client, {
     requireAcks: 1
 });
 var count = 0;
 //var client= redis.createClient(6379,"192.168.99.113",{password:"test123"});
- var client= redis.createClient(6379,"192.168.99.113");
+ var client= redis.createClient(6379,"192.168.99.118");
 router.post('/seckill', function (req, res) {
     count++
     client.multi().get('counter').decr("counter").execAsync().then(function(reply) {
