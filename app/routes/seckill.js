@@ -21,18 +21,18 @@ router.post('/seckill', function (req, res) {
             var payload = [
                 {
                     topic: 'CAR_NUMBER',
-                    messages: '購買成功，還剩下'+parseInt(reply[1])+'个',
+                    messages: '購買成功，還剩下'+parseInt(reply[1])+'個',
                     partition: 0
                 }
             ];
             producer.send(payload, function (err, data) {
-                // console.log(data);
+                 console.log(data);
             });
-            console.log('購買成功，還剩下'+parseInt(reply[1])+'个')
-            res.json({messages:'購買成功，還剩下'+parseInt(reply[1])+'个'})
+            console.log('購買成功，還剩下'+parseInt(reply[1])+'個')
+            res.json({messages:'購買成功，還剩下'+parseInt(reply[1])+'個'})
         } else {
             client.set("counter","0")
-            console.log('搶完了'+parseInt(reply[1])+'个')
+            console.log('搶完了'+parseInt(reply[1])+'個')
             res.json({messages:'搶完了'})
 
         }
